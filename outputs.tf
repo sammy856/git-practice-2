@@ -3,4 +3,6 @@ output "rgnames" {
 }
 
 
-
+output "rglocation" {
+ value = azurerm_resource_group.rgs.location
+}
