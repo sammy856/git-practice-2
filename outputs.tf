@@ -6,6 +6,3 @@ output "rglocation" {
     value = azurerm_resource_group.rgs.location
 } 
 
-output "rg_ids" {
-    value = azurerm_resource_group.rgs.id
-}
