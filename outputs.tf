@@ -3,4 +3,6 @@ output "rgnames" {
 }
 
 
-
+output "rgids" {
+  value = azurerm_resource_group.rgs.id
+}
