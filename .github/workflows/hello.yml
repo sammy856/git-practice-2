@@ -14,6 +14,7 @@ jobs:
         run: write-host "Hello Guys Whats's up"
   Linux-greeting:
     name: Greeting Audience by linux
+    needs: Windows-greeting
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience
