@@ -3,20 +3,17 @@ name: Greetings Pipeline
 on:
   workflow_dispatch:
 
+env:
+  NAME: 'sammy'
+
 # pipeline level pe agent ko assign ni kar sakte
 
 jobs:
-  Windows-greeting:
-    name: Greeting Audience
-    runs-on: windows-latest
-    continue-on-error: true
-    steps:
-      - name: Hello Audience
-        run: ech "Hello Guys Whats's up"
+
   Linux-greeting:
-    name: Greeting Audience by linux
-    needs: Windows-greeting
+    name: reply by linux $name
+
     runs-on: ubuntu-slim
     steps:
-      - name: Hello Audience
-        run: echo "Hello Guys Whats's up"     
+      - name: Hello Audience 
+        run: echo "Hello Guys Whats's up, I am good $NAME"     
