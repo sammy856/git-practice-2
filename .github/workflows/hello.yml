@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  NAME: 'sammy'
+  WIN_NAME: 'sammy'
 
 # pipeline level pe agent ko assign ni kar sakte
 
@@ -13,7 +13,7 @@ jobs:
   Linux-greeting:
     name: reply by linux $name
 
-    runs-on: ubuntu-slim
+    runs-on: windows-2022
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good $NAME"     
+        run: echo "Hello Guys Whats's up, I am good $env:WIN_NAME"     
