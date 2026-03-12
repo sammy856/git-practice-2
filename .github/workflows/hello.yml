@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Hello Audience
-        run: write-host "Hello Guys Whats's up"
+        run: ech "Hello Guys Whats's up"
   Linux-greeting:
     name: Greeting Audience by linux
     needs: Windows-greeting
