@@ -6,13 +6,13 @@ on:
 # pipeline level pe agent ko assign ni kar sakte
 
 jobs:
-  greeting:
+  Windows-greeting:
     name: Greeting Audience
     runs-on: windows-latest
     steps:
       - name: Hello Audience
         run: write-host "Hello Guys Whats's up"
-  Linux greeting:
+  Linux-greeting:
     name: Greeting Audience by linux
     runs-on: ubuntu-slim
     steps:
