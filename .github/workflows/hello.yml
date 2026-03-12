@@ -1,6 +1,6 @@
 name: Greetings Pipeline
 
-on: 
+on:
   workflow_dispatch:
 
 # pipeline level pe agent ko assign ni kar sakte
@@ -12,9 +12,9 @@ jobs:
     steps:
       - name: Hello Audience
         run: write-host "Hello Guys Whats's up"
-   Linux greeting:
-      name: Greeting Audience by linux
-      runs-on: ubuntu-slim
-      steps:
-        - name: Hello Audience
-          run: echo "Hello Guys Whats's up"     
+  Linux greeting:
+    name: Greeting Audience by linux
+    runs-on: ubuntu-slim
+    steps:
+      - name: Hello Audience
+        run: echo "Hello Guys Whats's up"     
