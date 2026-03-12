@@ -9,13 +9,13 @@ jobs:
   Windows-greeting:
     name: Greeting Audience
     runs-on: windows-latest
+    continue-on-error: true
     steps:
       - name: Hello Audience
         run: ech "Hello Guys Whats's up"
   Linux-greeting:
     name: Greeting Audience by linux
     needs: Windows-greeting
-    if: always()
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience
