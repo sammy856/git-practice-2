@@ -1,0 +1,14 @@
+name: Greetings Pipeline
+
+on: 
+  workflow_dispatch:
+
+# pipeline level pe agent ko assign ni kar sakte
+
+jobs:
+  greeting:
+    name: Greeting Audience
+    runs-on: ubuntu-slim
+    steps:
+      - name: Hello Audience
+        run: echo "Hello Guys Whats's up"
