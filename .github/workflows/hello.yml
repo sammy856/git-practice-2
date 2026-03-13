@@ -6,7 +6,11 @@ on:
       rgname:
         description: Please typr proper rgname
         default: rgdemo
-        type: string
+        type: choice
+        options:
+          - rgdemo-dev
+          - rgdemo-prod
+          - rgdemo-qa
 
 
 
