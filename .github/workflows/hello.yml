@@ -1,4 +1,4 @@
- name: Greetings Pipeline
+name: Greetings Pipeline
 
 on:
   workflow_dispatch:
