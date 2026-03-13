@@ -2,6 +2,11 @@ name: Greetings Pipeline
 
 on:
   workflow_dispatch:
+    inputs:
+      rgname:
+        description: Please typr proper rgname
+        default: rgdemo
+        type: string
 
 
 
@@ -15,4 +20,4 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good ${{ secrets.ANSIBLE_USER }}-${{ RUNNER.OS }} "     
+        run: echo "Hello Guys Whats's up, I am good ${{ github.event.inputs.rgname }}-${{ RUNNER.OS }} "     
