@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good ${{ secrets.ANSIBLE_USER }} "     
+        run: echo "Hello Guys Whats's up, I am good ${{ secrets.ANSIBLE_USER }}-${{ github.run_number }} "     
