@@ -1,4 +1,4 @@
-name: Greetings Pipeline
+ name: Greetings Pipeline
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
   Linux-greeting:
     name: reply by linux $name
 
-    runs-on: windows-2022
+    runs-on: ubuntu-slim
     steps:
       - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good ${{ vars.NAME }} "     
+        run: echo "Hello Guys Whats's up, I am good ${{ secrets.ANSIBLE_USER }} "     
