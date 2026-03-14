@@ -2,15 +2,8 @@ name: Greetings Pipeline
 
 on:
   workflow_dispatch:
-    inputs:
-      rgname:
-        description: Please typr proper rgname
-        default: rgdemo
-        type: choice
-        options:
-          - rgdemo-dev
-          - rgdemo-prod
-          - rgdemo-qa
+  push: 
+    
 
 
 
