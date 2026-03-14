@@ -13,7 +13,7 @@
   22 git commit -m "add xyz file"
   23 git remote -v
   24 git remote add origin git@github.com:sammy856/git-practice-2.git
-  25 git remote -v
+
   26 git push
   27 git push --set-upstream origin main
   28 git push --set-upstream origin master
