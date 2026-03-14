@@ -17,4 +17,3 @@
   26 git push
   27 git push --set-upstream origin main
   28 git push --set-upstream origin master
-  29 git commit -a
