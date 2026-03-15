@@ -14,9 +14,11 @@ jobs:
     name: Terraform Init
     runs-on: ubuntu-latest
     steps:
-      - name: Init
-        run: terraform working-directory: 
-     
+      - name: Terraform setup
+        uses: hashicorp/setup-terraform@v2.0.3
+
+      - name: Terraform Init
+        run: terraform init      
 
   
   
@@ -26,12 +28,3 @@ jobs:
 
 # pipeline level pe agent ko assign ni kar sakte
 
-jobs:
-
-  Linux-greeting:
-    name: reply by linux $name
-
-    runs-on: ubuntu-slim
-    steps:
-      - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good ${{ github.event.inputs.rgname }}-${{ RUNNER.OS }} "     
