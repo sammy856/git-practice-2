@@ -17,6 +17,9 @@ jobs:
       - name: Terraform setup
         uses: hashicorp/setup-terraform@v2.0.3
 
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+
       - name: list
         run: ls -ltr
 
