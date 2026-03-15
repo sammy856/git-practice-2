@@ -1,15 +1,21 @@
-name: Greetings Pipeline
+name: Tearraform infra
 
 on:
   workflow_dispatch:
   pull_request:
     branches:
       - master
-      
-
   push:
     branches:
-      - develop
+      - master
+      
+jobs:
+  terraform_init:
+    name: Terraform Init
+    runs-on: ubuntu-latest
+    steps:
+      - name: Init
+        run: terraform working-directory: 
      
 
   
