@@ -24,7 +24,7 @@ jobs:
         run: cd environment/dev
 
       - name: Terraform Init
-        run: terraform init      
+        run: terraform -chdir=environment/dev init      
 
   
   
