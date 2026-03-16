@@ -1,16 +1,36 @@
-name: Greetings Pipeline
+name: Tearraform infra
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - master
+  # pull_request:
+  #   branches:
+  #     - master
+  # push:
+  #   branches:
+  #     - master 
       
+jobs:
+  terraform_init:
+    name: Terraform Init
+    runs-on: ubuntu-latest
+    steps:
+      - name: Terraform setup
+        uses: hashicorp/setup-terraform@v2.0.3
 
-  push:
-    branches:
-      - develop
-     
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+    # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+           creds: ${{ secrets.AZURE_CREDENTIALS }} 
+
+      - name: cd into working folder
+        run: cd environment/dev
+
+      - name: Terraform Init
+        run: terraform -chdir=environment/dev init      
 
   
   
@@ -20,12 +40,3 @@ on:
 
 # pipeline level pe agent ko assign ni kar sakte
 
-jobs:
-
-  Linux-greeting:
-    name: reply by linux $name
-
-    runs-on: ubuntu-slim
-    steps:
-      - name: Hello Audience 
-        run: echo "Hello Guys Whats's up, I am good ${{ github.event.inputs.rgname }}-${{ RUNNER.OS }} "     
