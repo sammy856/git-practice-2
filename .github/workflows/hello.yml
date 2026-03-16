@@ -2,12 +2,12 @@ name: Tearraform infra
 
 on:
   workflow_dispatch:
-  # pull_request:
-  #   branches:
-  #     - master
-  # push:
-  #   branches:
-  #     - master 
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master 
       
 jobs:
   terraform_init:
@@ -30,7 +30,13 @@ jobs:
         run: cd environment/dev
 
       - name: Terraform Init
-        run: terraform -chdir=environment/dev init      
+        run: terraform -chdir=environment/dev init
+        
+      - name: Terraform Validate
+        run: terraform -chdir=environment/dev validate 
+
+      - name: Terraform Plan
+        run: terraform -chdir=environment/dev plan 
 
   
   
