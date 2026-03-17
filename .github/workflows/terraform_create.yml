@@ -12,7 +12,7 @@ on:
       
 jobs:
   terraform_create:
-    name: Terraform Infra Setup
+    name: Terraform Infra Setup 
     runs-on: ubuntu-latest
     steps:
       - name: Terraform setup
