@@ -41,7 +41,7 @@ jobs:
 
       - name: Terraform Apply Auto Approve
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform -chdir=environment/dev apply
+        run: terraform -chdir=environment/dev apply --auto-approve
 
   
   
