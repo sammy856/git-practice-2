@@ -3,7 +3,7 @@ name: Tearraform infra Create
 on:
   workflow_dispatch:
   
-jobs:
+jobs: 
   terraform:
     uses: sammy856/reusable-workflow/.github/workflows/terraform.yml@main
     with:
