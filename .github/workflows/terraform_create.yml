@@ -5,7 +5,7 @@ on:
   
 jobs:
   terraform:
-    uses: sammy856/reusable-workflow/.github/workflows/terraform.yml@master
+    uses: sammy856/reusable-workflow/.github/workflows/terraform.yml@main
     with:
       environment: dev
       working_directory: environment
