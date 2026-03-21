@@ -18,6 +18,9 @@ jobs:
       run:
         working-directory: environment/dev
     steps:
+      - name: Checkout   
+        uses: actions/checkout@v4
+    
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
 
