@@ -1,40 +1,41 @@
-name: Infra Setup
+name: Terraform infra Create
 
 on:
   workflow_dispatch:
   pull_request:
     branches:
-      - main
-  push:
-    branches:
-      - main
+      - master
 
 permissions:
   id-token: write
-  contents: read
+  contents: read 
 
 jobs:
   terraform:
-   name: Terraform Infra
-   runs-on: ubuntu-latest 
-   defaults:
-     run: 
-       working-directory: environment/dev
-   steps:
-      - name: HashiCorp - Setup Terraform
-        uses: hashicorp/setup-terraform@v2.0.3
-    
-      - name: Checkout
-        uses: actions/checkout@v6.0.2
+    runs-on: ubuntu-latest
+    environment: dev
 
-      - name: Azure CLI Action
-        uses: Azure/cli@v2.2.0
-    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Debug secrets
+        run: |
+          echo "CLIENT_ID=${{ secrets.AZURE_CLIENT_ID != '' }}"
+
+      - uses: hashicorp/setup-terraform@v3
+
       - name: Azure login
-        uses: azure/login@v3
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    
-    
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan
