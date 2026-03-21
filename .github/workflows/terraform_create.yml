@@ -14,6 +14,8 @@ jobs:
   terraform:
     name: Terraform Infra
     runs-on: ubuntu-latest
+    environment: dev
+    
     defaults:
       run:
         working-directory: environment/dev
@@ -23,6 +25,12 @@ jobs:
     
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
+
+      - name: Debug secrets
+        run: |
+          echo "CLIENT_ID=${{ secrets.AZURE_CLIENT_ID != '' }}"
+          echo "TENANT_ID=${{ secrets.AZURE_TENANT_ID != '' }}"
+          echo "SUB_ID=${{ secrets.AZURE_SUBSCRIPTION_ID != '' }}"
 
       - name: Azure login
         uses: azure/login@v2
