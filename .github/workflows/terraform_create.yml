@@ -41,6 +41,12 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          VALIDATE_ALL_CODEBASE: false
+          
+          VALIDATE_TERRAFORM_TFLINT: true
+          VALIDATE_CHECKOV: true
+          VALIDATE_TRIVY: true
   
 
 
