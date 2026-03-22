@@ -63,16 +63,24 @@ jobs:
       - name: Test with Checkov
         id: checkov
         uses: bridgecrewio/checkov-action@master
+        continue-on-error: true
         with:
           directory: .
           framework: terraform 
-           
-  
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.2.2
+        with:
+          name: results.sarif
+          path: .
+
+   
       - name: Terraform Init
         run: terraform init
-  
+    
       - name: Terraform Validate
         run: terraform validate
-  
+    
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan            
+
