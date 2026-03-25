@@ -98,13 +98,13 @@ jobs:
         with:
           python-version: 3.9
           
-      - name: Test with Checkov
-        id: checkov
-        uses: bridgecrewio/checkov-action@master
-        continue-on-error: true
-        with:
-          directory: .
-          framework: terraform 
+      - name: Install Checkov
+        run: pip install checkov
+      
+      - name: Run Checkov
+        run: checkov -d . --framework terraform
+        continue-on-error: true 
+        
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
