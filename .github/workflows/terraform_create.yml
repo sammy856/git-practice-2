@@ -69,8 +69,11 @@ jobs:
         run: |
           echo "CLIENT_ID=${{ secrets.AZURE_CLIENT_ID != '' }}"
 
-      - name: Hashicorp - Setup Terraform
-        uses: hashicorp/setup-terraform@v2.0.3
+      - name: Install Terraform
+        run: |
+          wget https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
+          unzip terraform_1.6.6_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
 
       - name: Install Azure CLI
         run: |
