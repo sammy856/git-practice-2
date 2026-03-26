@@ -54,7 +54,7 @@ jobs:
   terraform:
     name: Terraform Setup
     needs: super-lint
-    runs-on: arc-runner-set
+    runs-on: [self-hosted, arc-runner-set]
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
